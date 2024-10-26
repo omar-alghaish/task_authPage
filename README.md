@@ -1,34 +1,15 @@
 # README: Implementing Login Functionality
 
-## Overview
-
-This README outlines the steps taken to implement the login functionality in the project. It covers the libraries installed, files updated, and code modifications made to facilitate user authentication using Firebase.
-
-## Table of Contents
-
-1. [Prerequisites](#prerequisites)
-2. [Libraries Installed](#libraries-installed)
-3. [File Structure](#file-structure)
-4. [Code Updates](#code-updates)
-5. [How to Test](#how-to-test)
-
-
 ## Libraries Installed
 
-The following libraries were installed to enable login functionality:
-
 ```bash
-# Install Firebase for authentication
+# Install Firebase for authentication and hosting
 npm install firebase
-
-
-
+```
 
 ## Code Updates
 
 ### 1. Firebase Initialization (`src/firebase.ts`)
-
-Make sure to initialize Firebase in this file:
 
 ```javascript
 import { initializeApp } from 'firebase/app';
@@ -56,11 +37,11 @@ The `AuthProvider` component was updated to include login functionality:
 ```javascript
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useMemo, useEffect, useReducer, useCallback } from 'react';
-import axios, { endpoints } from 'src/utils/axios'; 
-import { auth } from 'src/firebase'; 
-import { AuthContext } from './auth-context'; 
-import { setSession, isValidToken } from './utils'; 
-import { AuthUserType, ActionMapType, AuthStateType } from '../../types'; 
+import axios, { endpoints } from 'src/utils/axios';
+import { auth } from 'src/firebase';
+import { AuthContext } from './auth-context';
+import { setSession, isValidToken } from './utils';
+import { AuthUserType, ActionMapType, AuthStateType } from '../../types';
 
  const login = useCallback(
     async (email: string, password: string) => {
@@ -82,6 +63,3 @@ import { AuthUserType, ActionMapType, AuthStateType } from '../../types';
     [dispatch]
   );
 ```
-
-
-
